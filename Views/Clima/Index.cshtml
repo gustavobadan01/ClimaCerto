@@ -1,0 +1,139 @@
+﻿@model GustavoASP.Models.DadosClima
+@{
+    ViewData["Title"] = "Clima Atual";
+}
+
+<div class="pagina">
+<div class="container_clima">
+
+    <div class="form">
+        <h3>Confira o clima de uma cidade:</h3>
+        <div class="form-input-container">
+            <input type="text"
+                   placeholder="Digite o nome da cidade"
+                   id="cidade" required />
+            <button id="pesquisar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+    </div>
+
+        <script>
+            $(document).ready(function () {
+                $('#pesquisar').on('click', function (e) {
+                    e.preventDefault();
+
+                    // Obter o valor do campo de entrada
+                    var cityName = $('#cidade').val();
+
+                    // Verificar se o campo não está vazio
+                    if (cityName.trim() !== "") {
+                        // Construir a nova URL com o nome da cidade
+                        var newUrl = window.location.origin + '/Clima/' + cityName;
+
+                        // Redirecionar para a nova URL
+                        window.location.href = newUrl;
+                    } else {
+                        // Exibir mensagem de erro ou realizar ações apropriadas
+                        alert("Por favor, digite o nome da cidade antes de pesquisar.");
+                    }
+                });
+            });
+        </script>
+
+    <div id="weather-data">
+
+         <h2>Como está o Tempo em @Model.Cidade</h2>
+            <p id="temperature">
+               
+                <i class="fa-solid fa-thermometer-empty"></i>
+                 <span>@Model.Temperatura.ToString("N2") &deg;C</span>
+
+             </p>
+        <div id="description-container">
+                <p id="description">
+                    <p>Condições Atuais: @Model.Descricao </p>
+                </p>
+            
+        </div>
+
+        <div id="details-container">
+
+            <p id="umidity">
+                <i class="fa-solid fa-droplet"></i>
+                    <span> @Model.Umidade.ToString() % </span>
+            </p>
+
+            <p id="wind">
+                <i class="fa-solid fa-wind"></i>
+                    <span> @Model.VelocidadeVento.ToString("N2") m/s </span>
+            </p>
+
+        </div>
+
+        <div id="details-container">
+
+            <p id="sun">
+                    <i class="fa-solid fa-sun"></i>
+                    <span> @Model.Amanhecer.ToString("HH:mm:ss")</span>
+            </p>
+
+            <p id="moon">
+                    <i class="fa-solid fa-moon"></i>
+                    <span> @Model.Anoitecer.ToString("HH:mm:ss")</span>
+            </p>
+        </div>
+
+
+            <div id="details-container">
+
+                <p id="cloud">
+                    <i class="fa-solid fa-cloud"></i>
+                    <span> @Model.Nuvens.ToString() %</span>
+                </p>
+
+                <p id="pressure">
+                    <i class="fa-solid fa-ruler-vertical"></i>
+                    <span> Pressão: @Model.Pressao.ToString() hPa</span>
+                </p>
+            </div>
+
+    </div>
+
+
+        @{
+            string urlLondres = Url.Action("London", "Clima");
+            string urlParis = Url.Action("Paris", "Clima");
+
+            string urlCuritiba = Url.Action("Curitiba", "Clima");
+            string urlCampinas = Url.Action("Campinas", "Clima");
+
+            string urlTokyo = Url.Action("Tokyo", "Clima");
+            string urlOrlando = Url.Action("Orlando", "Clima");
+            
+        }
+
+       
+    <div id="suggestions">
+
+        <button ><a href="@urlLondres">Londres</a></button>
+        <button ><a href="@urlParis">Paris</a></button>
+
+        <button ><a href="@urlCuritiba">Curitiba</a></button>
+        <button ><a href="@urlCampinas">Campinas</a></button>
+
+        <button><a href="@urlTokyo">Tóquio</a></button>
+        <button><a href="@urlOrlando">Orlando</a></button>
+
+    </div>
+</div>
+
+
+
+
+</div>
+
+
+
+
+

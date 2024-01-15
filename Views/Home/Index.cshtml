@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Página De Apresentação";
+}
+
+<div class="container mt-4 w-50 jus ">
+
+        <h1 class="mb-4 text-primary text-center">ClimaCerto</h1>    
+
+        <h2>Introdução</h2>
+        <ul>
+            <li>
+                Gostaria de apresentar o meu aplicativo de previsão do tempo local, uma ferramenta desenvolvida utilizando
+                tecnologias de ponta para fornecer informações precisas e atualizadas sobre as condições climáticas. O aplicativo
+                foi construído com base na plataforma ASP.NET, utilizando o padrão MVC (Model-View-Controller) para garantir uma
+                arquitetura robusta e modular.
+            </li>
+        </ul>
+       
+        <h2>Tecnologias Utilizadas</h2>
+        <ul>
+            <li>
+                O aplicativo faz uso extensivo da tecnologia ASP.NET, proporcionando uma experiência de usuário intuitiva e
+                responsiva. O padrão MVC foi adotado para garantir a separação clara de responsabilidades, facilitando a
+                manutenção e expansão do sistema. Além disso, a integração direta com a API do OpenWeatherMap garante acesso a
+                dados precisos e em tempo real sobre as condições climáticas locais.
+            </li>
+        </ul>
+      
+
+        <h2>Recursos Principais:</h2>
+        <ul>
+            <li>
+                <strong>Previsão do Tempo Atualizada:</strong> O aplicativo utiliza a API do OpenWeatherMap para fornecer
+                previsões do tempo atualizadas, garantindo que os usuários tenham informações precisas e confiáveis.
+            </li>
+            <li>
+                <strong>Interface Intuitiva:</strong> A interface do usuário foi cuidadosamente projetada para ser intuitiva
+                e fácil de usar, proporcionando uma experiência agradável para usuários de todos os níveis de habilidade.
+            </li>
+            <li>
+                <strong>Personalização de Localização:</strong> Os usuários podem personalizar a localização para obter
+                informações específicas sobre o clima em sua área, garantindo relevância e precisão nos dados apresentados.
+            </li>
+            <li>
+                <strong>Compatibilidade com Dispositivos Móveis:</strong> O aplicativo é responsivo, garantindo uma
+                experiência consistente e agradável em dispositivos móveis, permitindo que os usuários acessem facilmente as
+                informações climáticas em qualquer lugar.
+            </li>
+        </ul>
+
+        <h2>Pesquisa de Clima:</h2>
+        <ul>
+            <li>Ao colocar o nome por favor usar o nome em Inglês.</li>
+        </ul>
+
+        @{
+            string url = Url.Action("Presidente Prudente", "Clima");
+        }
+        
+        <a class="btn btn-info"  href="@url">Ir para Clima em Presidente Prudente</a>
+</div>
+
